@@ -32,7 +32,8 @@ public class AreaCheckServlet extends HttpServlet {
                 getServletContext().setAttribute("lastInfo", el);
             }
         } catch (Exception e) {
-            request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+            getServletContext().setAttribute("errorInfo", e.getMessage());
+            request.getServletContext().getRequestDispatcher("/errorInfo.jsp").forward(request, response);
         }
 
     }

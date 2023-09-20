@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c2:set var="lastInfo" value="${applicationScope.res}" />
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c2" %>
+<c2:set var="lastInfo" value="${applicationScope.lastInfo}" />
 <html>
 <head>
     <title>Conclusion</title>

@@ -19,11 +19,11 @@ public class ServletController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (request.getParameter("clearF") != null){
-            System.out.println("sdsd");
+            System.out.println("clearYes");
             request.getRequestDispatcher("/cleanTable").forward(request, response);
         }else{
             System.out.println(request.getParameter("clearF"));
-            System.out.println("sdsddsdsdsd");
+            System.out.println("clearNo");
             request.getRequestDispatcher("/areaCheckServlet").forward(request, response);
         }
     }
