@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="cssStyle/concStyle.css">
 </head>
 <body>
+    <div>
+        <header class="header">
+            <h2>Lab №1</h2> <br> Ovchinnikov Ilya, P3221 <br> Var no
+        </header>
+    </div>
     <h3> Error message: ${errorInfo}</h3> <br>
     <button class="bigButtons" onclick="redirectToIndex()">На главную</button>
     <script>
