@@ -9,7 +9,7 @@
 <body>
     <div>
         <header class="header">
-            <h2>Lab №1</h2> <br> Ovchinnikov Ilya, P3221 <br> Var no
+            <h2>Lab №2</h2> <br> Ovchinnikov Ilya, P3221 <br> Var №2167
         </header>
     </div>
     <div class="zone">

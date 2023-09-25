@@ -29,7 +29,7 @@ function  confirmValues(){
                 window.location.replace('./conclusion.jsp');
             },
             error: function (xhr, textStatus, err) {
-                alert("readyState: " + xhr.readyState + "\n"+
+                console.log("readyState: " + xhr.readyState + "\n"+
                     "responseText: " + xhr.responseText + "\n"+
                     "status: " + xhr.status + "\n"+
                     "text status: " + textStatus + "\n" +

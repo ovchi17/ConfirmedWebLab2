@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 
 @WebServlet(name = "areaCheckServlet", value = "/areaCheckServlet")
 public class AreaCheckServlet extends HttpServlet {
@@ -27,12 +28,17 @@ public class AreaCheckServlet extends HttpServlet {
                 String curTime = sdf.format(new Date());
                 String scriptTime = String.format("%.2f", (double) (System.nanoTime() - scriptStart) * 0.0001);
                 OneElement el = new OneElement(x, y, r, res, curTime, scriptTime);
-                Elements.addNewElement(el);
-                getServletContext().setAttribute("res", Elements.getArr());
+                BeanSessionStorage bSS = (BeanSessionStorage) request.getAttribute("bss");
+                BeanSessionStorage cur = new BeanSessionStorage(bSS.getArr());
+                cur.addNewElement(el);
+                System.out.println(cur.sizeOfArr());
+                getServletContext().setAttribute("res", cur.getArr());
                 getServletContext().setAttribute("lastInfo", el);
+                request.setAttribute("bss", cur);
             }
         } catch (Exception e) {
             getServletContext().setAttribute("errorInfo", e.getMessage());
+            System.out.println(e.getMessage());
             request.getServletContext().getRequestDispatcher("/errorInfo.jsp").forward(request, response);
         }
 
