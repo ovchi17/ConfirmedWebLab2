@@ -6,38 +6,47 @@ function careInput(event) {
 
 function checkInput(){
     let errorShow = document.querySelector('.checkInput');
-    const buttons = document.querySelectorAll('.button');
+    const buttons = document.querySelectorAll('.button1');
+    const buttons2 = document.querySelectorAll('.button2');
     let valueY = document.getElementById("y-value").value;
     var result = '';
     var verdict = false;
-    let isActiveButton = false;
+    let isActiveButton1 = false;
+    let isActiveButton2 = false;
     errorShow.classList.remove("show");
 
     buttons.forEach(button => {
         if (button.classList.contains('active')) {
-            isActiveButton = true;
+            isActiveButton1 = true;
         }
     });
-    if(isActiveButton){
+    buttons2.forEach(button => {
+        if (button.classList.contains('active')) {
+            isActiveButton2 = true;
+        }
+    });
+
+    console.log("CHECKER");
+    if (isActiveButton1 && isActiveButton2){
         console.log("Кнопка ворк");
-        if(!(valueY.trim() === "")){
+        if (!(valueY.trim() === "")){
             console.log("Поля не пустые");
             if (isNumber(valueY)){
                 console.log("Числа - числа");
-                if ((parseFloat(valueY) > -5) && (parseFloat(valueY) < 5)){
-                    console.log("рейндж норм");
+                console.log(parseFloat(valueY) < 3);
+                if ((parseFloat(valueY) > -5) && (parseFloat(valueY) < 3)){
                     verdict = true;
-                }else{
+                } else {
                     result = 'The values entered in the fields do not fall within the allowed range';
                 }
-            }else{
+            } else {
                 result = 'The values entered in the fields are not numbers';
             }
-        }else{
+        } else {
             result = 'Input fields cannot be empty';
         }
-    }else{
-        result = 'Please, choose X value';
+    } else {
+        result = 'Please, choose X and R values';
     }
     errorShow.innerHTML = result;
     errorShow.classList.add("show");

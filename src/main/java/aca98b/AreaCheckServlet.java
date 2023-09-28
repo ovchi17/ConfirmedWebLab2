@@ -21,8 +21,8 @@ public class AreaCheckServlet extends HttpServlet {
             float r = Float.parseFloat(request.getParameter("r"));
             long scriptStart = System.nanoTime();
             float[] arrayOfX = {-2, -1.5f, -1, -0.5f, 0, 0.5f, 1, 1.5f, 2};
-            float[] arrayOfR = {1, 1.5f, 2, 2.5f, 3};
-            if (inArr(x, arrayOfX) && inArr(r, arrayOfR) && y > -5 && y < 5){
+            float[] arrayOfR = {1, 2, 3, 4, 5};
+            if (inArr(x, arrayOfX) && inArr(r, arrayOfR) && y > -5 && y < 3){
                 String res = ifEnter(x, y, r);
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                 String curTime = sdf.format(new Date());

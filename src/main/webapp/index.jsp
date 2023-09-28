@@ -23,34 +23,34 @@
 <div class="workZone">
     <div class="container">
         <div class="XYcoord">
-            <img src="jpg/xyCoord.png" alt="Граф">
+            <img src="jpg/xyCh.png" alt="Граф">
         </div>
         <form novalidate name="simpleForm" onsubmit="confirmValues(); return false;">
             <div id="form">
                 <div id="structForm">
-                    <div class="buttons-container" id="buttonsList">
-                        <label for="buttonsList">Изменение по X:</label>
-                        <button type="button" class="button" data-value="-2">-2</button>
-                        <button type="button" class="button" data-value="-1.5">-1.5</button>
-                        <button type="button" class="button" data-value="-1">-1</button>
-                        <button type="button" class="button" data-value="-0.5">-0.5</button>
-                        <button type="button" class="button" data-value="0">0</button>
-                        <button type="button" class="button" data-value="0.5">0.5</button>
-                        <button type="button" class="button" data-value="1">1</button>
-                        <button type="button" class="button" data-value="1.5">1.5</button>
-                        <button type="button" class="button" data-value="2">2</button>
+                    <div class="buttons-container1" id="buttonsList1">
+                        <label for="buttonsList1">Изменение по X:</label>
+                        <button type="button" class="button1" data-value="-2">-2</button>
+                        <button type="button" class="button1" data-value="-1.5">-1.5</button>
+                        <button type="button" class="button1" data-value="-1">-1</button>
+                        <button type="button" class="button1" data-value="-0.5">-0.5</button>
+                        <button type="button" class="button1" data-value="0">0</button>
+                        <button type="button" class="button1" data-value="0.5">0.5</button>
+                        <button type="button" class="button1" data-value="1">1</button>
+                        <button type="button" class="button1" data-value="1.5">1.5</button>
+                        <button type="button" class="button1" data-value="2">2</button>
                     </div>
                     <div id="y-input">
-                        <label for="y-input">Изменение по Y (-5 ... 5):</label>
+                        <label for="y-input">Изменение по Y (-5 ... 3):</label>
                         <input type="text" class="y-text" maxlength="7" id="y-value" name="y-value" oninput="careInput(event)" required>
                     </div>
-                    <div id="r-input">
-                        <label for="r-input">Изменение по R:</label>
-                        <input type="radio" class="r-radio" name="r-value" value="1"> 1
-                        <input type="radio" class="r-radio" name="r-value" value="1.5"> 1.5
-                        <input type="radio" class="r-radio" name="r-value" value="2" checked> 2
-                        <input type="radio" class="r-radio" name="r-value" value="2.5"> 2.5
-                        <input type="radio" class="r-radio" name="r-value" value="3"> 3
+                    <div class="buttons-container2" id="buttonsList2">
+                        <label for="buttonsList2">Изменение по R:</label>
+                        <button type="button" class="button2" data-value="1">1</button>
+                        <button type="button" class="button2" data-value="2">2</button>
+                        <button type="button" class="button2" data-value="3">3</button>
+                        <button type="button" class="button2" data-value="4">4</button>
+                        <button type="button" class="button2" data-value="5">5</button>
                     </div>
                 </div>
                 <input type="submit" class="bigButtons" name="submitButton" value="Подтвердить">
@@ -62,7 +62,7 @@
 
     </div>
 </div>
-
+<br>
 <div id="resultTable">
     <input type="submit" class="bigButtons" id="clearTable" value="Очистить" onclick=" nullTable()">
     <table id="table">

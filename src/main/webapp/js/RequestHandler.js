@@ -5,18 +5,18 @@ function  confirmValues(){
     if (checkInput()){
         console.log("!!!");
         let valueY = document.getElementById("y-value").value;
-        let valueR;
-        const rButtons = document.getElementsByName('r-value');
-        rButtons.forEach(rButtons => {
-            if (rButtons.checked){
-                valueR = rButtons.value;
-            }
-        })
         let valueX;
-        const buttons = document.querySelectorAll('.button');
+        const buttons = document.querySelectorAll('.button1');
         buttons.forEach(button => {
             if (button.classList.contains('active')) {
                 valueX = button.dataset.value;
+            }
+        });
+        let valueR;
+        const buttons2 = document.querySelectorAll('.button2');
+        buttons2.forEach(button => {
+            if (button.classList.contains('active')) {
+                valueR = button.dataset.value;
             }
         });
 
