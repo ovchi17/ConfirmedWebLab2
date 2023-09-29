@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var img = document.getElementById('pic');
-    img.addEventListener('click', function (event) {
-        var x = event.offsetX;
-        var y = event.offsetY;
-        checkClickArea(x, y);
+    var svg = document.querySelector('.XYcoord svg');
+    svg.addEventListener('click', function (event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var point = svg.createSVGPoint();
+        point.x = x;
+        point.y = y;
+        var transformedPoint = point.matrixTransform(svg.getScreenCTM().inverse());
+        checkClickArea(transformedPoint.x, transformedPoint.y);
     });
 
     function checkClickArea(x, y) {

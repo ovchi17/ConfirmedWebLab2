@@ -25,6 +25,11 @@
     <div class="container">
         <div class="XYcoord">
             <img id="pic" src="jpg/xyCh.png" alt="Граф">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position: absolute; top: 25px; left: 25px;">
+                <c:forEach items="${res}" var="el">
+                    <circle cx="${el.getX() / el.getR() * 150 + 195}" cy="${(el.getY() / el.getR() * 155 - 200) * -1}" r="7" fill="red" />
+                </c:forEach>
+            </svg>
         </div>
         <form novalidate name="simpleForm" onsubmit="confirmValues(); return false;">
             <div id="form">
