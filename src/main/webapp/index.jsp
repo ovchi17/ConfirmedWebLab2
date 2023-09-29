@@ -5,12 +5,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lab1</title>
+    <title>Lab2</title>
 
     <script src="js/CheckInput.js"></script>
     <script src="js/NullTable.js"></script>
     <script src="js/RequestHandler.js"></script>
     <script src="js/Listeners.js"></script>
+    <script src="js/PicChecker.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="cssStyle/mainStyle.css">
 </head>
@@ -23,7 +24,7 @@
 <div class="workZone">
     <div class="container">
         <div class="XYcoord">
-            <img src="jpg/xyCh.png" alt="Граф">
+            <img id="pic" src="jpg/xyCh.png" alt="Граф">
         </div>
         <form novalidate name="simpleForm" onsubmit="confirmValues(); return false;">
             <div id="form">

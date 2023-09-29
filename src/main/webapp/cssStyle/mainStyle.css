@@ -47,7 +47,15 @@ h2:first-letter{
     margin-top: 60px;
 }
 
-.XYcoord img {
+.XYcoord {
+    position: relative;
+}
+
+#pic {
+    display: block;
+}
+
+img {
     max-width: 100%;
     max-height: 100%;
     border: 5px solid #e42575;

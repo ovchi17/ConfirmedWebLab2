@@ -18,10 +18,13 @@ public class AreaCheckServlet extends HttpServlet {
             float x = Float.parseFloat(request.getParameter("x"));
             float y = Float.parseFloat(request.getParameter("y"));
             float r = Float.parseFloat(request.getParameter("r"));
+            System.out.println(x);
+            System.out.println(y);
+            System.out.println(r);
             long scriptStart = System.nanoTime();
-            float[] arrayOfX = {-2, -1.5f, -1, -0.5f, 0, 0.5f, 1, 1.5f, 2};
+            //float[] arrayOfX = {-2, -1.5f, -1, -0.5f, 0, 0.5f, 1, 1.5f, 2};
             float[] arrayOfR = {1, 2, 3, 4, 5};
-            if (inArr(x, arrayOfX) && inArr(r, arrayOfR) && y > -5 && y < 3){
+            if (x > -2 && x < 2 && inArr(r, arrayOfR) && y > -5 && y < 3 ){
                 String res = ifEnter(x, y, r);
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
                 String curTime = sdf.format(new Date());
