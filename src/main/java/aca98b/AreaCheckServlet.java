@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
 
 @WebServlet(name = "areaCheckServlet", value = "/areaCheckServlet")
 public class AreaCheckServlet extends HttpServlet {
@@ -59,19 +58,21 @@ public class AreaCheckServlet extends HttpServlet {
         String resultF = "false";
 
         if (x >= 0 && y <= 0) {
-            if ((-1 * y) + x <= r / 2) {
+            if (x <= r / 2 && y >= -r) {
                 resultF = "true";
             }
+
+
         }
 
         if (x <= 0 && y <= 0) {
-            if (x >= -r && y >= (-r / 2)) {
+            if (x >= -1 * r / 2 && y >= -1 * r / 2 && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r / 2, 2))) {
                 resultF = "true";
             }
         }
 
         if (x >= 0 && y >= 0) {
-            if (x <= r / 2 && y <= r / 2 && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r / 2, 2))) {
+            if (y <= r && x <= r/2 && x*x + y*y <= r/2* r ) {
                 resultF = "true";
             }
         }
