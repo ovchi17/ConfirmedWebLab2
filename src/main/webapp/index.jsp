@@ -28,6 +28,8 @@
         <form novalidate name="simpleForm" onsubmit="confirmValues(); return false;">
             <div id="form">
                 <div id="structForm">
+                    <br>
+                    <br>
                     <div class="buttons-container1" id="buttonsList1">
                         <label for="buttonsList1">Изменение по X:</label>
                         <button type="button" class="button1" data-value="-2">-2</button>
