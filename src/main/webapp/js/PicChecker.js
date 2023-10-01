@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    let errorShow = document.querySelector('.checkInput');
     var svg = document.querySelector('.XYcoord svg');
     svg.addEventListener('click', function (event) {
         var x = event.clientX;
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function checkClickArea(x, y) {
+        var result = '';
         if ((x >= 40 && x <= 345) && (y >= 45 && y<= 350)){
             const buttonsR = document.querySelectorAll('.button2');
             let isActiveButtonR = false;
@@ -46,13 +48,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     });
                 }else{
-                    alert("Выход значений за пределы допустимого")
+                    result = 'Выход значений за пределы допустимого';
                 }
             }else{
-                alert('Не активирован R')
+                result = 'Не активирован R';
             }
         }else{
-            alert('Вы не попали в область');
+            result = 'Вы не попали в область';
         }
+        errorShow.innerHTML = result;
+        errorShow.classList.add("show");
     }
 });
