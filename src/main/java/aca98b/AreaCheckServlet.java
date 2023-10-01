@@ -75,7 +75,7 @@ public class AreaCheckServlet extends HttpServlet {
         }
 
         if (x >= 0 && y >= 0) {
-            if (y <= r && x <= r/2 && x*x + y*y <= r/2* r ) {
+            if (y <= -2 * x + r) {
                 resultF = "true";
             }
         }
