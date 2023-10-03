@@ -12,6 +12,7 @@
     <script src="js/RequestHandler.js"></script>
     <script src="js/Listeners.js"></script>
     <script src="js/PicChecker.js"></script>
+    <script src="js/UrlFunc.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="cssStyle/mainStyle.css">
 </head>
@@ -72,6 +73,7 @@
 </div>
 <br>
 <div id="resultTable">
+    <button class="bigButtons" onclick="redirectToURL()">URL'S</button>
     <input type="submit" class="bigButtons" id="clearTable" value="Очистить" onclick=" nullTable()">
     <table id="table">
         <tr>

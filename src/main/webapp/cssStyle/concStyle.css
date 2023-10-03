@@ -38,6 +38,23 @@ h3{
     max-height: 50px;
 }
 
+#tableU {
+    margin-top: 10px;
+    border-collapse: separate;
+    letter-spacing: 1px;
+    background-color: #1c1326;
+    color: #f5f3f7;
+    text-align: center;
+    border-radius: 16px;
+    border-spacing: 8px;
+    border: 2px solid #f5f3f7;
+    width: 40%;
+}
+
+#tableU th {
+    vertical-align: middle;
+}
+
 .zone{
     height: 300px;
     width: 180px;

@@ -30,9 +30,11 @@ public class ServletController extends HttpServlet {
             System.out.println("clearYes");
             request.getRequestDispatcher("/cleanTable").forward(request, response);
         }else{
-            System.out.println(request.getParameter("clearF"));
-            System.out.println("clearNo");
-            request.getRequestDispatcher("/areaCheckServlet").forward(request, response);
+            if (request.getParameter("urlInfo") != null){
+                request.getRequestDispatcher("/urlInfo").forward(request, response);
+            }else{
+                request.getRequestDispatcher("/areaCheckServlet").forward(request, response);
+            }
         }
         beanSessionStorage = (BeanSessionStorage) request.getAttribute("bss");
     }
