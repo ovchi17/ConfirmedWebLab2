@@ -5,9 +5,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 @WebServlet(name = "areaCheckServlet", value = "/areaCheckServlet")
 public class AreaCheckServlet extends HttpServlet {
@@ -27,6 +29,8 @@ public class AreaCheckServlet extends HttpServlet {
             if (x >= -2 && x <= 2 && inArr(r, arrayOfR) && y > -5 && y < 3 ){
                 String res = ifEnter(x, y, r);
                 SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+                TimeZone moscowTimeZone = TimeZone.getTimeZone("Europe/Moscow");
+                sdf.setTimeZone(moscowTimeZone);
                 String curTime = sdf.format(new Date());
                 String scriptTime = String.format("%.2f", (double) (System.nanoTime() - scriptStart) * 0.0001);
                 OneElement el = new OneElement(x, y, r, res, curTime, scriptTime);
@@ -41,7 +45,7 @@ public class AreaCheckServlet extends HttpServlet {
         } catch (Exception e) {
             getServletContext().setAttribute("errorInfo", e.getMessage());
             System.out.println(e.getMessage());
-            request.getServletContext().getRequestDispatcher("/errorInfo.jsp").forward(request, response);
+            request.getRequestDispatcher("/errorInfo.jsp").forward(request, response);
         }
 
     }

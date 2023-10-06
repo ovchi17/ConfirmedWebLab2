@@ -22,7 +22,7 @@ public class TableNoneServlet extends HttpServlet {
         } catch (Exception e) {
             getServletContext().setAttribute("errorInfo", e.getMessage());
             System.out.println(e.getMessage());
-            request.getServletContext().getRequestDispatcher("/errorInfo.jsp").forward(request, response);
+            request.getRequestDispatcher("/errorInfo.jsp").forward(request, response);
         }
     }
 

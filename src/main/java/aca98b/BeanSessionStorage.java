@@ -1,8 +1,10 @@
 package aca98b;
 
+import java.beans.JavaBean;
 import java.io.Serializable;
 import java.util.LinkedList;
 
+@JavaBean
 public class BeanSessionStorage implements Serializable {
     private static final long serialVersionUID = 1L;
 

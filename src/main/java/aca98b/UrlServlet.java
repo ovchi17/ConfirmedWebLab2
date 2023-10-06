@@ -16,7 +16,7 @@ public class UrlServlet extends HttpServlet {
         } catch (Exception e) {
             getServletContext().setAttribute("errorInfo", e.getMessage());
             System.out.println(e.getMessage());
-            response.sendRedirect(request.getContextPath() + "/errorInfo.jsp");
+            request.getRequestDispatcher("/errorInfo.jsp").forward(request, response);
         }
     }
 }

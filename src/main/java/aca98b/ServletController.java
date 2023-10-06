@@ -12,10 +12,10 @@ import java.io.IOException;
 public class ServletController extends HttpServlet {
 
     private BeanSessionStorage beanSessionStorage;
-    public ServletController(){
+    @Override
+    public void init() throws ServletException{
         beanSessionStorage = new BeanSessionStorage();
     }
-
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
