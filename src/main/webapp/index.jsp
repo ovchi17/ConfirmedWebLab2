@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="res" value="${applicationScope.res}" />
+<jsp:useBean id="beanSessionStorage" class="aca98b.BeanSessionStorage" scope="session"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +27,7 @@
         <div class="XYcoord">
             <img id="pic" src="jpg/xyCh.png" alt="Граф">
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position: absolute; top: 25px; left: 25px;">
-                <c:forEach items="${res}" var="el">
+                <c:forEach items="${beanSessionStorage.getArr()}" var="el">
                     <circle cx="${el.getX() / el.getR() * 150 + 195}" cy="${(el.getY() / el.getR() * 155 - 200) * -1}" r="7" fill="red" />
                 </c:forEach>
             </svg>
@@ -84,7 +84,7 @@
             <th>Current Time</th>
             <th>Script time</th>
         </tr>
-        <c:forEach items="${res}" var="el">
+        <c:forEach items="${beanSessionStorage.getArr()}" var="el">
             <tr>
                 <td>${el.getResult()}</td>
                 <td>${el.getX().toString()}</td>

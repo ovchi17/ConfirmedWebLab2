@@ -11,12 +11,6 @@ import java.io.IOException;
 @WebServlet(name = "controllerServlet", value = "/controllerServlet")
 public class ServletController extends HttpServlet {
 
-    private BeanSessionStorage beanSessionStorage;
-    @Override
-    public void init() throws ServletException{
-        beanSessionStorage = new BeanSessionStorage();
-    }
-
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
@@ -24,7 +18,15 @@ public class ServletController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        BeanSessionStorage beanSessionStorage = (BeanSessionStorage) session.getAttribute("beanSessionStorage");
+
+        if (beanSessionStorage == null) {
+            beanSessionStorage = new BeanSessionStorage();
+            session.setAttribute("beanSessionStorage", beanSessionStorage);
+        }
         request.setAttribute("bss", beanSessionStorage);
+
         if (request.getParameter("clearF") != null){
             request.getRequestDispatcher("/cleanTable").forward(request, response);
         }else if(request.getParameter("urlInfo") != null){
@@ -33,5 +35,7 @@ public class ServletController extends HttpServlet {
             request.getRequestDispatcher("/areaCheckServlet").forward(request, response);
         }
         beanSessionStorage = (BeanSessionStorage) request.getAttribute("bss");
+        session.setAttribute("beanSessionStorage", beanSessionStorage);
+        System.out.println(beanSessionStorage.getArr());
     }
 }
