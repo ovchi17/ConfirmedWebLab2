@@ -4,13 +4,13 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @WebFilter("/*")
 public class UrlCounterFilter implements Filter {
 
-    private Map<String, Integer> resultTable = new LinkedHashMap<>();
+    private Map<String, Integer> resultTable = new ConcurrentHashMap<>();
     private FilterConfig filterConfig;
 
     @Override
@@ -24,11 +24,8 @@ public class UrlCounterFilter implements Filter {
         String urlPath = ((HttpServletRequest)request).getRequestURL().toString();
         System.out.println(urlPath);
 
-        if (resultTable.get(urlPath) == null){
-            resultTable.put(urlPath, 1);
-        }else{
-            resultTable.put(urlPath, resultTable.get(urlPath) + 1);
-        }
+        resultTable.compute(urlPath, (k, v) -> (v == null) ? 1 : v + 1);
+
         System.out.println(resultTable);
         ServletContext servletContext = filterConfig.getServletContext();
         servletContext.setAttribute("urlInfos", resultTable);

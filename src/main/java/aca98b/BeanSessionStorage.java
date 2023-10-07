@@ -3,19 +3,20 @@ package aca98b;
 import java.beans.JavaBean;
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.List;
 
 @JavaBean
 public class BeanSessionStorage implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private LinkedList<OneElement> tableArr = new LinkedList<OneElement>();
+    private List<OneElement> tableArr;
 
     public BeanSessionStorage(){
         this.tableArr = new LinkedList<OneElement>();
     }
 
-    public BeanSessionStorage(LinkedList<OneElement> ms){
-        this.tableArr = ms;
+    public BeanSessionStorage(List<OneElement> ms){
+        this.tableArr = new LinkedList<>(ms);
     }
 
     public void nullTable(){
@@ -30,8 +31,8 @@ public class BeanSessionStorage implements Serializable {
         tableArr.add(el);
     }
 
-    public LinkedList<OneElement> getArr(){
-        return tableArr;
+    public List<OneElement> getArr(){
+        return new LinkedList<>(tableArr);
     }
-
 }
+

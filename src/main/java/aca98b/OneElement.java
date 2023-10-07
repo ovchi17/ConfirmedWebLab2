@@ -1,6 +1,6 @@
 package aca98b;
 
-public class OneElement {
+public final class OneElement {
     private float x;
     private float y;
     private float r;

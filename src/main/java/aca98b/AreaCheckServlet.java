@@ -5,14 +5,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(name = "areaCheckServlet", value = "/areaCheckServlet")
 public class AreaCheckServlet extends HttpServlet {
+
+    float[] arrayOfR = {1, 2, 3, 4, 5};
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -24,14 +26,10 @@ public class AreaCheckServlet extends HttpServlet {
             System.out.println(y);
             System.out.println(r);
             long scriptStart = System.nanoTime();
-            //float[] arrayOfX = {-2, -1.5f, -1, -0.5f, 0, 0.5f, 1, 1.5f, 2};
-            float[] arrayOfR = {1, 2, 3, 4, 5};
             if (x >= -2 && x <= 2 && inArr(r, arrayOfR) && y > -5 && y < 3 ){
                 String res = ifEnter(x, y, r);
-                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-                TimeZone moscowTimeZone = TimeZone.getTimeZone("Europe/Moscow");
-                sdf.setTimeZone(moscowTimeZone);
-                String curTime = sdf.format(new Date());
+                LocalTime currentTime = LocalTime.now();
+                String curTime = currentTime.format(formatter);
                 String scriptTime = String.format("%.2f", (double) (System.nanoTime() - scriptStart) * 0.0001);
                 OneElement el = new OneElement(x, y, r, res, curTime, scriptTime);
                 BeanSessionStorage bSS = (BeanSessionStorage) request.getAttribute("bss");
